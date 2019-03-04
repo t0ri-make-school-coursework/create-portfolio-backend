@@ -10,4 +10,15 @@ module.exports = (app) => {
     project.save((err, project) =>
       res.send('cool'));
   });
+
+  // Get All Projects
+  app.get('/projects', (req, res) => {
+    Project.find({})
+      .then((projects) => {
+        res.send({ projects });
+      })
+    .catch((err) => {
+      console.log(err.message);
+    });
+  });
 };
