@@ -7,7 +7,7 @@ const ProjectSchema = new Schema({
   // portfolio: [{ type: Schema.Types.ObjectId, ref: 'Portfolio' }],
 
   title: { type: String, required: true },
-  class: { type: String, required: true },
+  madeFor: { type: String, required: true },
   shortDesc: { type: String, required: true },
   longDesc: { type: String, required: true },
   repo: { type: String, required: true },

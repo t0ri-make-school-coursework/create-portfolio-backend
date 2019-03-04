@@ -1,6 +1,5 @@
 const express = require('express');
 
-const router = express.Router(); // eslint-disable-line new-cap
 
 // #TODO: Implement authentication routes.
 const getAuth = (username, password) => {
@@ -9,4 +8,4 @@ const getAuth = (username, password) => {
 };
 
 
-module.exports = { router, getAuth };
+module.exports = { getAuth };
