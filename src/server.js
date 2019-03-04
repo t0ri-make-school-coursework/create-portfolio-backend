@@ -26,7 +26,8 @@ if (config.mongooseDebug) {
   });
 }
 
-// # TODO: Any additional config changes belong here.
+// controllers
+require('./controllers/projects.js')(app);
 
 // module.parent check is required to support mocha watch
 // src: https://github.com/mochajs/mocha/issues/1912
