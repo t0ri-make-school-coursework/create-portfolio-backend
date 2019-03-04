@@ -7,6 +7,9 @@ const config = require('./config/config');
 const app = require('./config/express');
 const debug = require('debug')('auth-api-starterpack:index');
 
+const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
+
 mongoose.Promise = Promise;
 
 // connect to mongo db
@@ -25,6 +28,11 @@ if (config.mongooseDebug) {
     debug(`${collectionName}.${method}`, util.inspect(query, false, 20), doc);
   });
 }
+
+// Use Body Parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 
 // controllers
 require('./controllers/projects.js')(app);
