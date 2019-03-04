@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 const util = require('util');
+const express = require('express');
 
 // config should be imported before importing any other file
 const config = require('./config/config');
 
-const app = require('./config/express');
+const app = express();
+
 const debug = require('debug')('auth-api-starterpack:index');
 
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 
@@ -32,7 +35,11 @@ if (config.mongooseDebug) {
 // Use Body Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(expressValidator());
+
+app.use(cors());
+
 
 // controllers
 require('./controllers/projects.js')(app);
