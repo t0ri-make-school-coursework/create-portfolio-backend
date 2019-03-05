@@ -25,6 +25,12 @@ Each project resource is returned in the following JSON format:
 
 ### Project Endpoints
 Each endpoint not expected to read a response will return a 200 if OK.
+#### Get All Projects
+You can read all projects you're authorized to view with the `GET /projects` endpoints.
+```
+https://www.create-portfolio.herokuapp.com/api/projects
+```
+
 #### Create Project
 You can create a new project with the `POST /project/new` endpoint.
 ```
