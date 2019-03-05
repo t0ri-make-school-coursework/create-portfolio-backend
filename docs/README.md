@@ -2,11 +2,13 @@
 ## Introduction
 This is the documentation for the RESTful Create-Portfolio-API, which is intended to work alongside [Create-Portfolio](https://github.com/t0ri/create-portfolio-frontend) to fill your portfolio’s data. 
 
-The Create-Portfolio-API currently servers authorized access to user `project` data.
+The Create-Portfolio-API currently serves authorized access to a user's `project` data.
+
+**Base URL**:  `create-portfolio.herokuapp.com/api`
 
 ## Projects
-### Resource
-Each project is returned as the following JSON:
+### Project Resource
+Each project resource is returned in the following JSON format:
 ``` json
 {
 	"_id": "5c7c83ffa9f82238dcf7b23e",
@@ -21,18 +23,18 @@ Each project is returned as the following JSON:
 },
 ```
 
-### Projects Endpoints
-Each endpoint that isn’t expected to read a response will return a 200 if OK.
+### Project Endpoints
+Each endpoint not expected to read a response will return a 200 if OK.
 #### Create Project
-You can create a new project with the POST  `/project/new` endpoint.
+You can create a new project with the `POST /project/new` endpoint.
 ```
-https://www.create-portfolio.com/api/project/new
+https://www.create-portfolio.herokuapp.com/api/project/new
 ```
 
 #### Read Project
-You can read a project with the GET  `/project/:id` endpoint.
+You can read a project with the `GET /project/:id` endpoint.
 ```
-https://www.create-portfolio.com/api/project/:id
+https://www.create-portfolio.herokuapp.com/api/project/:id
 ```
 
 ``` json
@@ -52,15 +54,15 @@ https://www.create-portfolio.com/api/project/:id
 ```
 
 #### Update Project
-You can update a project with the PUT `/project/:id/edit` endpoint.
+You can update a project with the `PUT /project/:id/edit` endpoint.
 ``` 
-https://www.create-portfolio.com/api/project/:id/edit
+https://www.create-portfolio.herokuapp.com/api/project/:id/edit
 ```
 
 #### Delete Project
-You can delete a project with the DELETE `/project/:id` endpoint.
+You can delete a project with the `DELETE /project/:id` endpoint.
 ```
-https://www.create-portfolio.com/api/project/:id
+https://www.create-portfolio.herokuapp.com/api/project/:id
 ```
 
 ## Users
@@ -69,18 +71,18 @@ Each user creates their account with an `email`, `password`, `fName`, `lName`, a
 
 ### Requests
 #### Sign Up User
-``` javascript
-fetch('https://www.create-portfolio.com/api/auth/sign-up')
+```
+https://www.create-portfolio.com/api/auth/sign-up
 ```
 
 #### Sign In User
-``` javascript
-fetch('https://www.create-portfolio.com/api/auth/sign-in')
+```
+https://www.create-portfolio.com/api/auth/sign-in
 ```
 
 #### Sign Out User
-``` javascript
-fetch('https://www.create-portfolio.com/api/auth/sign-out')
+```
+https://www.create-portfolio.com/api/auth/sign-out
 ```
 
 
