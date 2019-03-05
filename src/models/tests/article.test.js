@@ -1,11 +1,11 @@
 const chai = require('chai');
 const Article = require('../article');
-const server = require('../../index');
+// const server = require('../../server');
 
-const should = chai.should();
+// const should = chai.should();
 const expect = chai.expect;
 
-const agent = chai.request.agent(server);
+// const agent = chai.request.agent(server);
 
 chai.config.includeStack = true;
 
@@ -23,9 +23,5 @@ describe('## Article Model', () => {
     expect(article.link).to.equal('link');
     expect(article.shortDesc).to.equal('shortdesc');
     expect(article.img).to.equal('img.com/ok');
-    
-    // 
   });
-
-
 });

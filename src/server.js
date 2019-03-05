@@ -1,8 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const mongoose = require('mongoose');
 const util = require('util');
 const express = require('express');
 
-// config should be imported before importing any other file
 const config = require('./config/config');
 
 const app = express();

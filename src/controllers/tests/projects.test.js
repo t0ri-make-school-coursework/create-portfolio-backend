@@ -9,17 +9,17 @@
 // });
 
 const chai = require('chai');
-const chaiHttp = require('chai-http');
+// const chaiHttp = require('chai-http');
 const Project = require('../../models/project');
 const server = require('../../server');
 
-const should = chai.should();
+// const should = chai.should();
 const expect = chai.expect;
 
 // const agent = chai.request.agent(server);
 
 chai.config.includeStack = true;
-chai.use(chaiHttp);
+// chai.use(chaiHttp);
 
 describe('## Projects Controller', () => {
   // Post that we'll use for testing purposes
