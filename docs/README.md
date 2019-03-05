@@ -1,3 +1,4 @@
+
 # Create-Portfolio-API Documentation
 ## Introduction
 This is the documentation for the RESTful Create-Portfolio-API, which is intended to work alongside [Create-Portfolio](https://github.com/t0ri/create-portfolio-frontend) to fill your portfolio’s data. 
@@ -92,26 +93,27 @@ https://www.create-portfolio.com/api/auth/sign-out
 ```
 
 
-## STRETCH (Intensive) Data
+## Complete Create-Portfolio Data
+To be worked on over Spring Break and Intensive.
 ### User Account
-email
-password
-fName
-lName
-slug
+* email
+* password
+* fName
+* lName
+* slug
 ### Professional Details
-title
-introduction
-about
-skills
-skill
-languages
-language
+* title
+* introduction
+* about
+* skills
+* skill
+* languages
+* language
 interests
 interest
 ### Contact
-resume
-links
+* resume
+* links
 each link:
 * title
 * URL
@@ -124,9 +126,9 @@ each article:
 ### Projects
 each project:
 * title
+* madeFor
 * shortDesc
 * longDesc
-* class
 * repo
 * live
 * tech
