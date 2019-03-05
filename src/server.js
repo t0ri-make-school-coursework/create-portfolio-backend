@@ -12,6 +12,8 @@ const debug = require('debug')('auth-api-starterpack:index');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 
 mongoose.Promise = Promise;
 
@@ -38,11 +40,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(expressValidator());
 
+app.use(cookieParser());
+
 app.use(cors());
 
 
 // controllers
 require('./controllers/projects.js')(app);
+require('./controllers/auth.js')(app);
+
 
 // module.parent check is required to support mocha watch
 // src: https://github.com/mochajs/mocha/issues/1912
