@@ -1,14 +1,15 @@
+/* eslint-disable no-new */
 const Project = require('../models/project');
 
 module.exports = (app) => {
   // Create New Project
   app.post('/projects/new', (req, res) => {
-    console.log(req.body)
     const project = new Project(req.body);
-    console.log(project);
 
-    project.save((err, project) =>
-      res.send('cool'));
+    project.save(newguy =>
+      res.send(newguy))
+      .catch(err =>
+        new Error(err.message));
   });
 
   // Get All Projects
@@ -18,7 +19,19 @@ module.exports = (app) => {
         res.send({ projects });
       })
     .catch((err) => {
-      console.log(err.message);
+      new Error(err.message);
     });
+  });
+
+  // Get ONE Project
+  app.get('/projects/:id', (req, res) => {
+    // LOOK UP THE POST
+    Project.findById(req.params.id)
+      .then((project) => {
+        res.send({ project });
+      })
+      .catch((err) => {
+        new Error(err.message);
+      });
   });
 };
