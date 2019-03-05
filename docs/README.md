@@ -1,16 +1,73 @@
 # Create-Portfolio-API Documentation
-## Intro
-Create-Portfolio-API works alongside [Create-Portfolio](https://github.com/t0ri/create-portfolio-frontend) to fill your portfolio’s data.  
+## Introduction
+This is the documentation for the RESTful Create-Portfolio-API, which is intended to work alongside [Create-Portfolio](https://github.com/t0ri/create-portfolio-frontend) to fill your portfolio’s data. 
 
-## Resources
-### Users
-Each user has an `email`, `password`, `fName`, `lName`, and `slug` (for a personalized URL).
+The Create-Portfolio-API currently servers authorized access to user `project` data.
 
-### Projects
-Each project has a `title`, `shortDesc`, `longDesc`, `class`, `repo`, `live`, `tech`, and `img`.
+## Projects
+### Resource
+Each project is returned as the following JSON:
+``` json
+{
+	"_id": "5c7c83ffa9f82238dcf7b23e",
+	"title": "Project Name",
+	"madeFor": "Class Name",
+	"shortDesc": "This is my short description.",
+	"longDesc": "This is my longer description.",
+	"repo": "https://www.link.com",
+	"live": "https://www.link.com",
+	"img": "https://www.link.com",
+	"__v": 0
+},
+```
 
-## Endpoints
-### User Endpoints
+### Projects Endpoints
+Each endpoint that isn’t expected to read a response will return a 200 if OK.
+#### Create Project
+You can create a new project with the POST  `/project/new` endpoint.
+```
+https://www.create-portfolio.com/api/project/new
+```
+
+#### Read Project
+You can read a project with the GET  `/project/:id` endpoint.
+```
+https://www.create-portfolio.com/api/project/:id
+```
+
+``` json
+{
+    "project": {
+        "_id": "id",
+        "title": "title",
+        "madeFor": "madeFor",
+        "shortDesc": "shortDesc",
+        "longDesc": "longDesc",
+        "repo": "repo",
+        "live": "live",
+        "img": "img",
+        "__v": 0
+    }
+}
+```
+
+#### Update Project
+You can update a project with the PUT `/project/:id/edit` endpoint.
+``` 
+https://www.create-portfolio.com/api/project/:id/edit
+```
+
+#### Delete Project
+You can delete a project with the DELETE `/project/:id` endpoint.
+```
+https://www.create-portfolio.com/api/project/:id
+```
+
+## Users
+### Resource
+Each user creates their account with an `email`, `password`, `fName`, `lName`, and `slug` (for a personalized URL) when signing up.
+
+### Requests
 #### Sign Up User
 ``` javascript
 fetch('https://www.create-portfolio.com/api/auth/sign-up')
@@ -24,27 +81,6 @@ fetch('https://www.create-portfolio.com/api/auth/sign-in')
 #### Sign Out User
 ``` javascript
 fetch('https://www.create-portfolio.com/api/auth/sign-out')
-```
-
-### Projects Endpoints
-#### Create Project
-``` javascript
-fetch('https://www.create-portfolio.com/api/project/new')
-```
-
-#### Read Project
-``` javascript
-fetch('https://www.create-portfolio.com/api/project/:id')
-```
-
-#### Update Project
-``` javascript
-fetch('https://www.create-portfolio.com/api/project/:id/edit')
-```
-
-#### Delete Project
-``` javascript
-fetch('https://www.create-portfolio.com/api/project/:id')
 ```
 
 

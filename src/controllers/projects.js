@@ -3,14 +3,14 @@ const Project = require('../models/project');
 
 module.exports = (app) => {
   // Create New Project
-  // app.post('/projects/new', (req, res) => {
-  //   const project = new Project(req.body);
+  app.post('/projects/new', (req, res) => {
+    const project = new Project(req.body);
 
-  //   project.save(project =>
-  //     res.send(project))
-  //     .catch(err =>
-  //       new Error(err.message));
-  // });
+    project.save(() =>
+      res.sendStatus(200))
+      .catch(err =>
+        new Error(err.message));
+  });
 
   // Get All Projects
   app.get('/projects', (req, res) => {
