@@ -25,13 +25,27 @@ module.exports = (app) => {
 
   // Get ONE Project
   app.get('/projects/:id', (req, res) => {
-    // LOOK UP THE POST
     Project.findById(req.params.id)
       .then((project) => {
         res.send({ project });
       })
       .catch((err) => {
         new Error(err.message);
+      });
+  });
+
+  // Remove A Project
+  app.delete('/projects/:id', (req, res) => {
+    Project.findByIdAndRemove({ _id: req.params.id })
+      .then(() => {
+        // check if it's deleted
+        Project.findById(req.params.id)
+          .then((project) => {
+            res.send(project);
+          })
+          .catch((err) => {
+            new Error(err.message);
+          });
       });
   });
 };
