@@ -1,6 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable func-names */
 const mongoose = require('mongoose');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const bcrypt = require('bcrypt');
 
 const Schema = mongoose.Schema;
@@ -29,7 +30,6 @@ UserSchema.pre('save', function (next) {
     return next();
   }
   bcrypt.hash(user.password, 10, (err, hash) => {
-    console.log(hash);
     user.password = hash;
     next();
   });

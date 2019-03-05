@@ -18,4 +18,13 @@ module.exports = (app) => {
         console.log(error);
       });
   });
+
+  // Sign-Out
+  app.get('/sign-out', (req, res) => {
+    res.clearCookie('createPortfolioToken');
+    res.sendStatus(200);
+  }).catch((err) => {
+    const error = new Error(err.message);
+    console.log(error);
+  });
 };
