@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable func-names */
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 const Schema = mongoose.Schema;
 
@@ -28,11 +28,10 @@ UserSchema.pre('save', function (next) {
   if (!user.isModified('password')) {
     return next();
   }
-  bcrypt.genSalt(10, (salt) => {
-    bcrypt.hash(user.password, salt, (hash) => {
-      user.password = hash;
-      next();
-    });
+  bcrypt.hash(user.password, 10, (err, hash) => {
+    console.log(hash);
+    user.password = hash;
+    next();
   });
 });
 
