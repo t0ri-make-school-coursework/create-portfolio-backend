@@ -5,9 +5,10 @@ module.exports = (app) => {
   // Create A Project
   app.post('/projects/new', (req, res) => {
     const project = new Project(req.body);
-
-    project.save(() =>
-      res.sendStatus(200))
+    console.log(project)
+    project.save().then(() =>{
+      res.sendStatus(200)
+    })
       .catch(err =>
         new Error(err.message));
   });
@@ -27,8 +28,8 @@ module.exports = (app) => {
   app.put('/projects/:id/edit', (req, res) => {
     Project.findByIdAndUpdate(req.params.id, req.body)
       .then(() => res.sendStatus(200))
-      .catch((err) => {
-        new Error(err.message);
+      .catch((error) => {
+        new Error(error.message);
       });
   });
 
