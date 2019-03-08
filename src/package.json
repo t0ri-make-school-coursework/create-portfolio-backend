@@ -11,7 +11,7 @@
     "yarn": ">=1.5.1"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node src/server.js",
     "start:debug": "cross-env DEBUG=auth-api-starterpack:* yarn start",
     "lint": "esw *.js server config --color",
     "lint:watch": "yarn lint -- --watch",
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:droxey/auth-api-starterpack.git"
+    "url": "git@github.com:t0ri/create-portfolio-backend.git"
   },
   "keywords": [
     "express",
