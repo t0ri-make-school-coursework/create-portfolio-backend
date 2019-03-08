@@ -4,13 +4,15 @@ const Project = require('../models/project');
 module.exports = (app) => {
   // Create A Project
   app.post('/projects/new', (req, res) => {
-    const project = new Project(req.body);
-    console.log(project)
-    project.save().then(() =>{
-      res.sendStatus(200)
-    })
-      .catch(err =>
-        new Error(err.message));
+    if (req.user) {
+      const project = new Project(req.body);
+      console.log(project)
+      project.save().then(() =>{
+        res.sendStatus(200)
+      })
+    } else {
+      return res.status(401); // UNAUTHORIZED
+    }
   });
 
   // Read A Project

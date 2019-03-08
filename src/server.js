@@ -21,6 +21,21 @@ app.use(expressValidator());
 app.use(cookieParser());
 app.use(cors());
 
+// Auth
+var checkAuth = (req, res, next) => {
+  if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
+    return req.user = null;
+  } else {
+    var token = req.cookies.nToken;
+    var decodedToken = jwt.decode(token, { complete: true }) || {};
+    req.user = decodedToken.payload;
+  }
+
+  next();
+};
+app.use(checkAuth);
+
+// Database
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/create-portfolio-backend', { useNewUrlParser: true });
 
