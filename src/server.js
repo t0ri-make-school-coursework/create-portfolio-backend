@@ -22,18 +22,18 @@ app.use(cookieParser());
 app.use(cors());
 
 // Auth
-var checkAuth = (req, res, next) => {
-  if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
-    return req.user = null;
-  } else {
-    var token = req.cookies.nToken;
-    var decodedToken = jwt.decode(token, { complete: true }) || {};
-    req.user = decodedToken.payload;
-  }
+// var checkAuth = (req, res, next) => {
+//   if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
+//     return req.user = null;
+//   } else {
+//     var token = req.cookies.nToken;
+//     var decodedToken = jwt.decode(token, { complete: true }) || {};
+//     req.user = decodedToken.payload;
+//   }
 
-  next();
-};
-app.use(checkAuth);
+//   next();
+// };
+// app.use(checkAuth);
 
 // Database
 const mongoose = require('mongoose');
